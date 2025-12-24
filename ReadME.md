@@ -18,3 +18,5 @@ flowchart LR
 ```
 
 If the above chart doesn't render use: [mermaid editor](https://mermaid.live/) to view.
+
+## Set Up Explained

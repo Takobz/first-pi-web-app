@@ -1,0 +1,16 @@
+services:
+  webapp: 
+    build: 
+      context: ./webapp
+      dockerfile: Dockerfile
+    restart: on-failure
+
+  nginx-proxy:
+    build: 
+      context: ./nginx-proxy
+      dockerfile: Dockerfile
+    depends_on:
+      - webapp
+    ports:
+      - '8080:80'
+    restart: unless-stopped
