@@ -1,6 +1,8 @@
 name: Pi Github Action Trigger
 run-name: ${{ github.actor }} trying out GH Actions
-on: [push]
+on: 
+    push:
+        branches: [ main ]
 jobs:
     Pi-Github-Actions:
         runs-on: ubuntu-latest
