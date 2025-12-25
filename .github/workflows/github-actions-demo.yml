@@ -1,0 +1,16 @@
+name: Pi Github Action Trigger
+run-name: ${{ github.actor }} trying out GH Actions
+on: [push]
+jobs:
+    Pi-Github-Actions:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Hello GH Actions!"
+            - run: echo "Action even name ${{ github.event_name }}"
+            - name: Checkout out Repo
+              uses: actions/checkout@v5
+            - run: echo ${{ github.repository }} cloned
+            - name: List Cloned files
+              run: |
+                ls ${{ github.workspace }}
+            - run: echo "Status of run is ${{ job.status }}"
