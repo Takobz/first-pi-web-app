@@ -1,10 +1,14 @@
 services:
   webapp: 
-    image: khutsokobela/piweb:latest
+    build: 
+      context: ./webapp
+      dockerfile: Dockerfile
     restart: on-failure
 
   nginx-proxy:
-    image: khutsokobela/pi-reverse-proxy:latest
+    build: 
+      context: ./nginx-proxy
+      dockerfile: Dockerfile
     depends_on:
       - webapp
     ports:
