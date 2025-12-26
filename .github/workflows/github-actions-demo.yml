@@ -26,7 +26,7 @@ jobs:
               with:
                 context: ${{ github.workspace }}/src/webapp
                 file: ${{ github.workspace }}/src/webapp/Dockerfile
-                push: false
+                push: true
                 tags: khutsokobela/piweb:latest
 
             - name: Build and Push Nginx Proxy Dockerfile
@@ -34,5 +34,5 @@ jobs:
               with:
                 context: ${{ github.workspace }}/src/nginx-proxy
                 file: ${{ github.workspace }}/src/nginx-proxy/Dockerfile
-                push: false
+                push: true
                 tags: khutsokobela/pi-reverse-proxy:latest
