@@ -1,5 +1,5 @@
 name: Pi Github Action Trigger
-run-name: ${{ github.actor }} trying out GH Actions
+run-name: Build Pi Web App Docker Images 
 on: 
     push:
         branches: [ main ]
@@ -7,6 +7,8 @@ jobs:
     Pi-Github-Actions:
         runs-on: ubuntu-latest
         steps:
+            - run: echo "${{ github.actor }} Triggered The Pipeline."
+
             - name: Checkout Code
               uses: actions/checkout@v4
 
@@ -31,6 +33,6 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                 context: ${{ github.workspace }}/src/nginx-proxy
-                file: ${{ github.workspace }}/src/ginx-proxy/Dockerfile
+                file: ${{ github.workspace }}/src/nginx-proxy/Dockerfile
                 push: false
                 tags: khutsokobela/pi-reverse-proxy:latest
