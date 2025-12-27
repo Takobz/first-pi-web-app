@@ -51,8 +51,10 @@ jobs:
                 username: ${{ secrets.SSH_USERNAME }}
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 script: |
-                  touch test_${{ github.run_id }}.txt
-                  echo "Build with Run Id ${{ github.run_id }}" >> test_${{ github.run_id }}.txt 
+                  cd ~/pi-web
+                  # relative to the workspace
+                  cp src/docker-compose.yml docker-compose.yml 
+                  docker compose -f docker-compose.yml up
 
             
                 
