@@ -50,8 +50,8 @@ jobs:
                 host: ${{ secrets.SSH_HOST }}
                 username: ${{ secrets.SSH_USERNAME }}
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
-                source: "${{ github.workspace }}/src/docker-compose.yml"
-                target: pi-web
+                source: "src/docker-compose.yml"
+                target: "~/pi-web/"
 
             - name: Deploy Compose file to Pi
               uses: appleboy/ssh-action@v1.0.0
@@ -60,10 +60,8 @@ jobs:
                 username: ${{ secrets.SSH_USERNAME }}
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 script: |
-                  cd ~/pi-web
-                  # for whatever reason the scp action creates a whole dir tree
-                  # that is the same as the gh action workspace
-                  cd ${{ github.workspace }}/src/docker-compose.yml
+                  cd ~/pi-web/src
+                  ls -la
                   docker compose -f docker-compose.yml up
 
             
