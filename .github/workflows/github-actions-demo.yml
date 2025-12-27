@@ -44,6 +44,15 @@ jobs:
                 oauth-secret: ${{ secrets.TS_OAUTH_CLIENT_SECRET }}
                 tags: tag:github-pi-action
 
+            - name: Copy Compose file to Pi
+              uses: appleboy/scp-action@v1
+              with:
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USERNAME }}
+                key: ${{ secrets.SSH_PRIVATE_KEY }}
+                source: "${{ github.workspace }}/src/docker-compose.yml"
+                target: pi-web
+
             - name: Deploy Compose file to Pi
               uses: appleboy/ssh-action@v1.0.0
               with:
@@ -52,8 +61,6 @@ jobs:
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 script: |
                   cd ~/pi-web
-                  # relative to the workspace
-                  cp src/docker-compose.yml docker-compose.yml 
                   docker compose -f docker-compose.yml up
 
             
