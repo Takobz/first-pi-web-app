@@ -36,3 +36,16 @@ jobs:
                 file: ${{ github.workspace }}/src/nginx-proxy/Dockerfile
                 push: true
                 tags: khutsokobela/pi-reverse-proxy:latest
+
+            - name: Deploy Script SSH
+              uses: appleboy/ssh-action@v1.0.0
+              with: 
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USERNAME }}
+                key: ${{ secrets.SSH_PRIVATE_KEY }}
+                port: ${{ secrets.SSH_PORT }}
+                timeout: 120s # 120 seconds
+                script: |
+                  touch test.txt
+                  echo "from GH actions" >> test.txt
+                
