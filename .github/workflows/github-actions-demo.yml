@@ -44,5 +44,15 @@ jobs:
                 oauth-secret: ${{ secrets.TS_OAUTH_CLIENT_SECRET }}
                 tags: tag:github-pi-action
 
+            - name: Deploy Compose file to Pi
+              uses: appleboy/ssh-action@v1.0.0
+              with:
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USERNAME }}
+                key: ${{ secrets.SSH_PRIVATE_KEY }}
+                script: |
+                  touch test_${{ github.run_id }}.txt
+                  echo "Build with Run Id ${{ github.run_id }}" >> test_${{ github.run_id }}.txt 
+
             
                 
