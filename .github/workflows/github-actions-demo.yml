@@ -61,6 +61,9 @@ jobs:
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 script: |
                   cd ~/pi-web
+                  # for whatever reason the scp action creates a whole dir tree
+                  # that is the same as the gh action workspace
+                  cd ${{ github.workspace }}/src/docker-compose.yml
                   docker compose -f docker-compose.yml up
 
             
