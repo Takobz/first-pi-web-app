@@ -2,7 +2,7 @@ services:
   webapp: 
     image: khutsokobela/piweb:latest
     platform: linux/amd64
-    restart: on-failure
+    # restart: on-failure
 
   nginx-proxy:
     image: khutsokobela/pi-reverse-proxy:latest
@@ -11,4 +11,4 @@ services:
       - webapp
     ports:
       - '8080:80'
-    restart: unless-stopped
+    # restart: unless-stopped
