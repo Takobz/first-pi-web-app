@@ -66,5 +66,5 @@ jobs:
                   cd ~/pi-web/src
                   ls -la
                   docker compose -f docker-compose.yml pull
-                  docker compose -f docker-compose.yml up
+                  docker compose -f docker-compose.yml up -d
                   docker image prune -f
