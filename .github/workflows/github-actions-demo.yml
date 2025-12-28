@@ -28,6 +28,8 @@ jobs:
                 file: ${{ github.workspace }}/src/webapp/Dockerfile
                 push: true
                 tags: khutsokobela/piweb:latest
+                platforms: linux/amd64,linux/arm64
+
 
             - name: Build and Push Nginx Proxy Dockerfile
               uses: docker/build-push-action@v6
@@ -36,6 +38,7 @@ jobs:
                 file: ${{ github.workspace }}/src/nginx-proxy/Dockerfile
                 push: true
                 tags: khutsokobela/pi-reverse-proxy:latest
+                platforms: linux/amd64,linux/arm64
 
             - name: Tailscale Authentication
               uses: tailscale/github-action@v4
@@ -62,7 +65,6 @@ jobs:
                 script: |
                   cd ~/pi-web/src
                   ls -la
+                  docker compose -f docker-compose.yml pull
                   docker compose -f docker-compose.yml up
-
-            
-                
+                  docker image prune -f
