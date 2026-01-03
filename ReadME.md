@@ -19,4 +19,10 @@ flowchart LR
 
 If the above chart doesn't render use: [mermaid editor](https://mermaid.live/) to view.
 
+## Concepts 
+
+Below is a list of concepts I came across to achieve the set-up.
+
+- [SSH via TailScale Tunneling](..)
+
 ## Set Up Explained
