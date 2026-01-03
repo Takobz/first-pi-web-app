@@ -19,10 +19,16 @@ flowchart LR
 
 If the above chart doesn't render use: [mermaid editor](https://mermaid.live/) to view.
 
-## Concepts 
+## Set Up Explained
+
+- [Deployment Process](./docs/DEPLOYMENT_PROCESS.md)
+- [Exposing Web App in the Pi](./docs/EXPOSE_WEB_APP.md)
+- [Attaching Domain to Pi](./docs/)
+
+## Concepts
 
 Below is a list of concepts I came across to achieve the set-up.
 
 - [SSH via TailScale Tunneling](..)
-
-## Set Up Explained
+- [Cloudflare Tunneling]
+- [Attaching Domain]
