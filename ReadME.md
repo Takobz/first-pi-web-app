@@ -4,6 +4,8 @@
 
 This project attempts to achieve the set up discribe below by the mermaid chart.  
 
+Visit the site [khutso test site](https://khutso-test-site.online/app). Might be up or down I don't have my Pi up all the time and I don't itend to electricity is expensive in South Africa lol.
+
 ```mermaid
 flowchart LR
     A[Internet] -- HTTPS Traffic --> F
@@ -29,7 +31,6 @@ If the above chart doesn't render use: [mermaid editor](https://mermaid.live/) t
 
 - [Deployment Process](./docs/DEPLOYMENT_PROCESS.md)
 - [Exposing Web App in the Pi](./docs/EXPOSE_WEB_APP.md)
-- [Attaching Domain to Pi](./docs/)
 
 ## Issues I came across
 
