@@ -6,7 +6,13 @@ This project attempts to achieve the set up discribe below by the mermaid chart.
 
 ```mermaid
 flowchart LR
-    A[Internet] -- HTTPS Traffic --> B[Nginx <br/> Container]
+    A[Internet] -- HTTPS Traffic --> F
+
+    subgraph CloudflareNetwork
+        F[Cloudflare Tunnel] 
+    end
+
+        F <--> B[Nginx Container]
 
     subgraph Docker Network
         B -- Route Calls --> C[Web App]
