@@ -39,8 +39,11 @@ To see the challenge I came across and what I did to overcome them if I was able
 
 ## Concepts
 
-Below is a list of concepts I came across to achieve the set-up.
+Below is a list of concepts I came across to achieve the set-up.  
 
-- [SSH via TailScale Tunneling](..)
-- [Cloudflare Tunneling]
-- [Attaching Domain]
+- Port forwarding
+- VPN Tunneling with TailScale
+- Public web tunneling with cloudflare.
+- SCP (I knew SSH only)
+- Domain Name System (DNS System) [I know I said System twice]
+- Public vs Private Network.
